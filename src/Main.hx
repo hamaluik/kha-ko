@@ -13,6 +13,9 @@ class Main {
 	static var helloWorldEnglish:String = "Hello world!";
 	static var helloWorldGreek:String = "Γεια σου κόσμο!";
 	static var helloWorldKorean:String = "안녕하세요!";
+	static var helloWorldChineseSimplified:String = "你好世界！";
+	static var helloWorldChineseTraditional:String = "你好世界！";
+	static var helloWorldChineseJapanese:String = "こんにちは！";
 
 	public static function main() {
 		System.start({title: "kha-ko", width: 800, height: 600}, function (_) {
@@ -20,6 +23,9 @@ class Main {
 				addGlyphs(helloWorldEnglish);
 				addGlyphs(helloWorldGreek);
 				addGlyphs(helloWorldKorean);
+				addGlyphs(helloWorldChineseSimplified);
+				addGlyphs(helloWorldChineseTraditional);
+				addGlyphs(helloWorldChineseJapanese);
 				trace('glyphs:');
 				trace(myGlyphs);
 				Graphics.fontGlyphs = myGlyphs;
@@ -43,11 +49,19 @@ class Main {
 
 		g.begin(true, Color.White);
 		g.color = Color.Black;
+
+		var y:Float = 16;
+
 		g.font = Assets.fonts.NotoSans_Regular;
-		g.drawString(helloWorldEnglish, 16, 16);
-		g.drawString(helloWorldGreek, 16, 64);
-		g.font = Assets.fonts.HiMelody_Regular;
-		g.drawString(helloWorldKorean, 16, 112);
+		g.drawString(helloWorldEnglish, 16, y); y += 48;
+		g.drawString(helloWorldGreek, 16, y); y += 48;
+		g.font = Assets.fonts.BMYEONSUNG;
+		g.drawString(helloWorldKorean, 16, y); y += 48;
+		g.font = Assets.fonts.BenmoJinHei;
+		g.drawString(helloWorldChineseSimplified, 16, y); y += 48;
+		g.drawString(helloWorldChineseTraditional, 16, y); y += 48;
+		g.font = Assets.fonts.irohamaru_mikami_Regular;
+		g.drawString(helloWorldChineseJapanese, 16, y); y += 48;
 		g.end();
 	}
 }
